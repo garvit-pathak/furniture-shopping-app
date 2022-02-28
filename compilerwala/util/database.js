@@ -4,5 +4,5 @@ module.exports = mysql.createPool({
     user: 'root',
     password: 'root',
     connectionLimit: 100,
-    database: 'furniture_store'
+    database: 'compilerwala'
 });
