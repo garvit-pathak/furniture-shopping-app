@@ -3,9 +3,9 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const adminRouter = require('./routes/admin.routes');
-const indexRouter = require('./routes/index.routes');
 const categoryRouter = require('./routes/category.routes');
 const productRouter = require('./routes/product.routes');
+const { ppid } = require('process')
 const app = express();
 
 app.set("view engine","ejs");
@@ -19,8 +19,7 @@ app.use(session({
 app.use("/admin",adminRouter);
 app.use("/category",categoryRouter);
 app.use("/product",productRouter);
-app.use(indexRouter);
 
-app.listen(3000,()=>{    
+
+app.listen(3000);
 console.log("server is runing...");
-});

@@ -27,6 +27,7 @@ exports.saveProduct  = (request,response,next)=>{
     product.save()
     .then(result=>{
         return response.redirect("/admin/dashboard");
+    
     })
     .catch(err=>{
         console.log(err);
@@ -48,42 +49,55 @@ exports.addProductPage = (request, response, next) => {
             return response.send("Erro.....");
         });
 };
-exports.deleteProduct = (request,response,next)=>{
-    let product = new Product(productid);
-    product.productid  = request.params.productid;
-    product.delete()
-    .then(result=>{
-        return response.redirect("/admin/dashboard");
+exports.productList = (request,response,next)=>{
+    Product.fetchAll()
+    .then(results=>{
+        console.log(results);
+       response.render("admin/product_list.ejs",{
+         username: '',
+         productList: results
+       });
     })
     .catch(err=>{
         console.log(err);
-        return response.send("Error....");
     });
 }
-
-exports.deleteProductPage = (request, response, next) => {
-         Category.fetchAllCategory()
-        .then(results => {
-            return response.render("admin/delete_product.ejs", {
-                title: "delete product",
-                products: results
-            });
-
-        })
-        .catch(err => {
-            console.log(err);
-            return response.send("Erro.....");
-        });
-        Product.fetchAllProduct()
-        .then(results => {
-            return response.render("admin/delete_product.ejs", {
-                title: "delete product",
-                products: results
-            });
-
-        })
-        .catch(err => {
-            console.log(err);
-            return response.send("Erro.....");
-        });
-};
+exports.getProductById = (request,response,next)=>{
+    Product.fetchProductById(request.params.productid)
+    .then(result=>{
+        console.log(result);
+         response.render('./admin/edit_product.ejs',{
+            username : '',
+            product: result[0]
+         });
+      
+    })
+    .catch(err=>{
+       console.log(err);
+    });
+ };
+ 
+exports.updateProduct =  (request,response)=>{
+    let p = new Product();
+    p.productid = request.body.productid;
+    p.productName = request.body.productName;
+    p.productPrice = request.body.productPrice;
+    p.frontview = request.body.frontview;
+    p.description = request.body.description;
+    p.productQty = request.body.productQty;
+    p.update().then(result=>{
+       response.redirect("/admin/dashboard");
+    }).catch(err=>{
+       console.log(err);
+       response.send("Error.....");
+    });
+ };
+exports.deleteProduct = (request,response,next)=>{
+    const productid = request.params.productid;
+    Product.delete(productid).then(
+        ()=>{
+            //response.redirect("/user/product-list");
+          response.send("Product Deleted...");
+        }
+    ).catch();
+ };

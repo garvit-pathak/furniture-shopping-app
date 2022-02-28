@@ -12,6 +12,32 @@ exports.addCategory = (request,response,next)=>{
     response.send("Error.......");
   });
 };
+exports.categoryList = (request,response,next)=>{
+  Category.fetchAll()
+  .then(results=>{
+     response.render("admin/category_list.ejs",{
+       username: '',
+       categoryList: results
+     });
+  })
+  .catch(err=>{
+      console.log(err);
+  });
+}
+exports.getCategoryById = (request,response,next)=>{
+  Category.fetchCategoryById(request.params.productid)
+  .then(result=>{
+    if(result.length>0){
+       response.render('admin/edit_category.ejs',{
+          username : '',
+          category: result[0]
+       });
+    }
+  })
+  .catch(err=>{
+     console.log(err);
+  });
+};
 exports.addCategoryPage = (request, response, next) => {
   Category.fetchAllCategory()
       .then(results => {
