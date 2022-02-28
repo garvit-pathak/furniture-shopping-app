@@ -29,3 +29,4 @@ exports.signout = (request,response,next)=>{
     request.session.destroy();
     response.redirect("/admin/");
 }
+

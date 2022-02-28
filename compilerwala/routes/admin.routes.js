@@ -10,4 +10,5 @@ router.post("/login",adminController.adminLoginPost);
 router.get("/dashboard",auth.isAuth,adminController.adminDashBoard);
 
 router.get("/signout",auth.isAuth,adminController.signout);
+
 module.exports = router;

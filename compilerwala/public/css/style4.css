@@ -11,6 +11,12 @@ body{
     background-size: cover;
     background-position: center;
 }
+.title{
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: large;
+
+}
 .side-bar{
     background :rgb(255, 255, 255,0.1);
     backdrop-filter: blur(15px);
@@ -35,7 +41,7 @@ body{
     cursor: pointer;
 }
 .side-bar .menu .item a{
-    color: rgb(255, 255, 255);
+    color: rgb(14, 13, 13);
     background: #ffbd44;
     font-size: 16px;
     text-decoration: none;
@@ -44,7 +50,7 @@ body{
     line-height: 60px;
 }
 .side-bar .menu .item a:hover{
-    background:rgb(96, 121, 143);
+    background:rgb(231, 157, 45);
     transition: 0.3s ease;
 }
 .side-bar .menu .item i{

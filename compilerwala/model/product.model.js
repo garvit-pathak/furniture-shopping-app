@@ -5,10 +5,10 @@ module.exports = class Product{
     this.productPrice = productPrice;
     this.productQty = productQty;
     this.description = description;
-    this.frontViewImage = frontview;
-    this.backViewImage = backview;
-    this.leftViewImage = leftview;
-    this.rightViewImage = rightview;     
+    this.frontview = frontview;
+    this.backview = backview;
+    this.leftview = leftview;
+    this.rightview = rightview;     
   }
   static fetchAllProduct(){
     return new Promise((resolve,reject)=>{
@@ -25,21 +25,67 @@ module.exports = class Product{
       })
     });
   }
-  delete(productid){
+  static fetchAll(){
     return new Promise((resolve,reject)=>{
       pool.getConnection((err,con)=>{
         if(!err){
-          let sql="delete from product where productid=?";
-          con.query(sql,[this.productid=productid],(err,queryResult)=>{
-            con.release();   
-            err ? reject(err) : resolve(queryResult); 
-          });
+          let sql = "select * from product";
+          con.query(sql,(err,results)=>{
+            err ? reject(err) : resolve(results);
+            con.release();
+          });            
         }
         else
-        reject(err);
-      })
+          reject(err);
+      });        
     });
-  }
+ }
+  static delete(productid){
+    return new Promise((resolve,reject)=>{
+      pool.getConnection((err,con)=>{
+        if(!err){
+            let sql = "delete from product where productid = ? ";
+            con.query(sql,[parseInt(productid)],(err,result)=>{
+              err ? reject(err) : resolve(result);
+              con.release();
+            });
+        }
+        else
+          reject(err);
+      });
+     });
+    }
+    static fetchProductById(productid){
+      return new Promise((resolve,reject)=>{
+        pool.getConnection((err,con)=>{
+          if(!err){
+             let sql = "select * from product where productid = ? ";
+             con.query(sql,[productid],(err,result)=>{
+               err ? reject(err) : resolve(result);
+               con.release();
+             });
+          }
+          else
+            reject(err);
+        });
+      });
+      }
+      update(){
+        return new Promise((resolve,reject)=>{
+         pool.getConnection((err,con)=>{
+           if(!err){
+             let sql = "update product set productName=?,productPrice=?,productQty=?,description=?,frontview=? where productid= ?";
+             con.query(sql,[this.productName,this.productPrice*1,this.productQty,this.description,this.frontview,this.productid],(err,result)=>{
+               err ? reject(err) : resolve(result);
+               con.release();
+             });
+           }
+           else
+             reject(err);
+         }); 
+         });
+        }
+                
   save(){
       return new Promise((resolve,reject)=>{
         pool.getConnection((err,con)=>{
