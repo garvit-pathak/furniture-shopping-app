@@ -21,5 +21,6 @@ app.use("/category",categoryRouter);
 app.use("/product",productRouter);
 app.use(indexRouter);
 
-app.listen(3000);
+app.listen(3000,()=>{    
 console.log("server is runing...");
+});
