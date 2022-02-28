@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    background: url("/images/admin.jpg") no-repeat ;
+    background-size: cover;
+    height: 10px;
+}
+.login-form{
+    box-shadow: 100px;
+    width: 400px;
+    top: 65%;
+    right: 80px;
+    transform: translate(-70%,-70%);
+    position: absolute;
+    color: rgb(244, 247, 252);
+    
+    
+}
+.login-form h1{
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0;
+}
+.login-form p{
+    font-size: 25px;
+    margin: 15px,0;
+}
+.login-form input{
+    font-size: 15px;
+    width:100%;
+    padding: 15px 10px;
+    border: 1px solid;
+    outline:none;
+    border-radius: 5px;
+}
+.login-form button{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px 15px;
+    width: 30%;
+    border-radius: 5px;
+    border: 0px;
+    color:green;
+
+
+}
