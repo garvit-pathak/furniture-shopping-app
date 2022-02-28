@@ -20,7 +20,7 @@ app.use("/admin",adminRouter);
 app.use("/category",categoryRouter);
 app.use("/product",productRouter);
 app.use(indexRouter);
-
+app.use ("/tetsing");
 app.listen(3000,()=>{    
 console.log("server is runing...");
 });
