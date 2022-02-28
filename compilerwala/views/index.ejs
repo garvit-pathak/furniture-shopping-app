@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ui.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="short icon" href="img/fav-icon.png" type="image/x-icon">
+    <title>CompilerWala</title>
+</head>
+
+<body>
+    <!-- scroller -->
+    <a href="#home" class="scroll-top"><i class='bx bx-up-arrow-alt'></i></a>
+    <header>
+        <!-- nav bar -->
+        <div class="nav container">
+            <div class="menu-icon">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#popular">Popular</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+
+            </ul>
+            <a href="#" class="logo">
+                CompilerWala<span>.</span>
+            </a>
+            <div class="nav-icons">
+                <i class='bx bx-cart-alt' id="cart-icon"></i>
+                <i class='bx bx-user' id="user-icon"></i>
+            </div>
+            <!-- cart -->
+            <div class="cart">
+                <div class="cart-content">
+                    <div class="cart-box">
+                        <img src="img/products1.png" alt="">
+                        <div class="cart-text">
+                            <h3>Soft Furniture</h3>
+                            <span>$150</span>
+                            <span>x1</span>
+                        </div>
+                        <i class='bx bx-trash'></i>
+                    </div>
+
+                    <div class="cart-box">
+                        <img src="img/products2.png" alt="">
+                        <div class="cart-text">
+                            <h3>Soft Furniture</h3>
+                            <span>$150</span>
+                            <span>x1</span>
+                        </div>
+                        <i class='bx bx-trash'></i>
+                    </div>
+                    <div class="total">
+                        <h3>2 items</h3>
+                        <span>Total: $300</span>
+                    </div>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </div>
+            <!--login form  -->
+            <div class="login-form">
+                <form action="">
+                    <h2>Login To Continue</h2>
+                    <input type="email" name="email" id="email" placeholder="Your Email..." required>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <a href="#">Forget Password?</a>
+                    <input type="submit" value="log In" class="btn">
+                    <a href="#">Create account</a>
+                </form>
+            </div>
+        </div>
+    </header>
+    <!-- home section -->
+    <section class="home container" id="home">
+        <div class="home-text">
+            <h1><span>Modern Furniture</span><br>For Your House</h1>
+            <p>We understand your need for home decor <br> with unique decorative accessories .</p>
+            <a href="#" class="btn">Shop More</a>
+        </div>
+        <!-- home page static-->
+        <div class="home-img">
+            <img src="img/Sofa.png" alt="">
+        </div>
+
+    </section>
+    <!-- popular category -->
+    <section class="popular container" id="popular">
+        <div class="heading">
+            <h2>Popular Category</h2>
+            <a href="#">See All</a>
+        </div>
+        <!-- popular content dynamic-->
+        <div class="popular-content">
+            <!-- box1 -->
+            <% let i=0 ; for(category of categoryList){ if(i==4){ break; } i++; %>
+          
+            <div class="box">
+
+                    <div>
+                        <img src="/images/<%=category.categoryImage%>" alt="" />
+                        <div class="box-text">
+                            <h3>
+                                <%=category.categoryName%>
+                            </h3>
+                            <a href="#">
+                                <i class='bx bx-cart-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </section>
+    <!-- about -->
+    <section class="about container" id="about">
+        <div class="about-img">
+            <img class="img-fluid" src="img/about.png" alt="">
+        </div>
+        <!-- about txt -->
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>To discover new furniture design ideas was never so handy,browse over 500 products from our top
+                categories for an ultimate online furniture shopping experience .To choose furniture for a living space
+                is as tricky as doing the interiors.Either you're redoing or changing the place ,all you need to know is
+                cheap online furniture shops from where you can buy quality products.</p>
+            <div class="features">
+                <i class='bx bxs-checkbox-checked'><span>Free home delivery</span></i>
+                <i class='bx bxs-checkbox-checked'><span>Easy return</span></i>
+                <i class='bx bxs-checkbox-checked'><span>Quality Assurance</span></i>
+            </div>
+        </div>
+    </section>
+    <!-- products -->
+    <section class="products container" id="products">
+        <div class="heading">
+            <h2>Products Shop</h2>
+            <a href="#">See All</a>
+        </div>
+        <!-- product content  dynamic-->
+        <div class="products-content">
+            <!-- box1 -->
+            <%for(product of productList){%>
+            <div class="box-product">
+                    <img src="images/<%=product.frontview%>" alt="image">
+                    <div class="box-text">
+                        <div class="title-price">
+                            <h3>
+                               <%=product.productName%>
+                            </h3>
+                            <span>
+                               <%=product.productPrice%>
+                            </span>
+
+                        </div>
+                        <a href="#">
+                            <i class='bx bx-cart-alt'></i>
+                        </a>
+                    </div>
+
+                </div>
+                <%}%> 
+        </div>
+    </section>
+    <!-- livechat -->
+    <section class="livechat">
+        <div class="livechat-content container">
+            <div class="livechat-text">
+                <h2>live chat with us!</h2>
+                <p>Share your quires with us and get immidiate reply from our team.</p>
+            </div>
+            <form action="">
+                <input type="text" name="livechat" id="livechat" placeholder="Enter your query.." reuired>
+                <input type="submit" value="enter" class="btn">
+            </form>
+        </div>
+    </section>
+    <!-- footer -->
+    <section class="footer container">
+        <div class="footer-box">
+            <h3>The Company</h3>
+            <a href="#">About Us</a>
+            <a href="#">help</a>
+            <a href="#">Privacy Policy</a>
+
+        </div>
+        <div class="footer-box">
+            <h3>Popular Categories</h3>
+            <a href="#">Bedroom</a>
+            <a href="#">Living Room</a>
+            <a href="#">Outdoor</a>
+        </div>
+        <div class="footer-box">
+            <h3>More Information</h3>
+            <a href="#">Shipping</a>
+            <a href="#">Delivery & return</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-box">
+            <h3>Social</h3>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+
+            </div>
+        </div>
+    </section>
+    <!-- copyright -->
+    <div class="copyright">
+        <p>&#169; CompilerWala All Right Reserved</p>
+    </div>
+    <!-- link to js -->
+    <script src="/java_script/main.js"></script>
+</body>
+
+</html>

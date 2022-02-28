@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partial/bootstrap.ejs')%>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="login-form">
+            <h1>Sign-In</h1>
+            <form action="/admin/login" method="post"class="admin-login-form">
+               <p> Email</p>
+               <input type="text" name="email" placeholder="Email"> 
+               <p>Password</p> 
+               <input type="password" name="password" placeholder="password">
+               <button type="submit">Login</button>
+            </form> 
+    </div>
+  </body>
+</html>
