@@ -27,6 +27,7 @@
                 <li><a href="#popular">Popular</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#products">Products</a></li>
+                <li><a href="#products">Services</a></li>
 
             </ul>
             <a href="#" class="logo">
@@ -101,8 +102,8 @@
         <div class="popular-content">
             <!-- box1 -->
             <% let i=0 ; for(category of categoryList){ if(i==4){ break; } i++; %>
-          
-            <div class="box">
+
+                <div class="box">
 
                     <div>
                         <img src="/images/<%=category.categoryImage%>" alt="" />
@@ -127,10 +128,8 @@
         <!-- about txt -->
         <div class="about-text">
             <h2>About Us</h2>
-            <p>To discover new furniture design ideas was never so handy,browse over 500 products from our top
-                categories for an ultimate online furniture shopping experience .To choose furniture for a living space
-                is as tricky as doing the interiors.Either you're redoing or changing the place ,all you need to know is
-                cheap online furniture shops from where you can buy quality products.</p>
+            <p>To discover new furniture design ideas was never so handy,browse over 500 products from our top categories for an ultimate online furniture shopping experience .To choose furniture for a living space is as tricky as doing the interiors.Either
+                you're redoing or changing the place ,all you need to know is cheap online furniture shops from where you can buy quality products.</p>
             <div class="features">
                 <i class='bx bxs-checkbox-checked'><span>Free home delivery</span></i>
                 <i class='bx bxs-checkbox-checked'><span>Easy return</span></i>
@@ -148,12 +147,12 @@
         <div class="products-content">
             <!-- box1 -->
             <%for(product of productList){%>
-            <div class="box-product">
+                <div class="box-product">
                     <img src="images/<%=product.frontview%>" alt="image">
                     <div class="box-text">
                         <div class="title-price">
                             <h3>
-                               <%=product.productName%>
+                                <%=product.productName%>
                             </h3>
                             <span>
                                <%=product.productPrice%>
@@ -166,7 +165,7 @@
                     </div>
 
                 </div>
-                <%}%> 
+                <%}%>
         </div>
     </section>
     <!-- livechat -->
